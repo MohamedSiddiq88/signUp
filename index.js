@@ -17,7 +17,11 @@ const PORT=process.env.PORT;
 const app=express();
 
 //middleware
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    // allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 app.use(express.json());
 
 //students routers
