@@ -27,7 +27,7 @@ router.post("/login",async(req,res)=>{
         //is user available 
         const user =await getUser(req.body.email)
         if(!user){
-        return res.status(400).json({data:"invalid"})
+        return res.status(400).json({data:"invalid jhgjhghj"})
         }
         //is password valid
         const validPassword = await bcrypt.compare(
