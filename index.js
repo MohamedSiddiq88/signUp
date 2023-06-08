@@ -20,14 +20,14 @@ const app=express();
 app.use(cors({
     origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    // allowedHeaders: ['Content-Type', 'Authorization']
+     allowedHeaders: ['Content-Type', 'Authorization']
   }));
 app.use(express.json());
 
 //students routers
 app.use("/mentors",isAuthenticated,mentorsRouter);
 app.use("/students",isAuthenticated,studentsRouter);
-app.use("/",isAuthenticated,welcomeRouter);
+app.use("/",welcomeRouter);
 app.use("/users",usersRouter)
 
 //listen to a server
