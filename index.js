@@ -5,6 +5,8 @@ import { studentsRouter } from "./Routers/students.js";
 import { welcomeRouter } from "./Routers/welcome.js";
 import { usersRouter } from "./Routers/users.js";
 import { isAuthenticated } from "./Authentication/auth.js";
+import cors from "cors";
+
 
 
 // configure the envirenment
@@ -15,6 +17,11 @@ const PORT=process.env.PORT;
 const app=express();
 
 //middleware
+app.use(cors({
+    origin: 'http://localhost:3000/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+  }));
 app.use(express.json());
 
 //students routers
